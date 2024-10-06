@@ -9,7 +9,7 @@
 
 
 
-            <FieldCard v-for="field in fields" :title="field.title" :description="field.description"  :images="field.images" :location="field.longitude + field.latitude"/>
+            <FieldCard v-for="field in fields" :id="field.id" :title="field.title" :description="field.description"  :images="field.images" :location="field.longtitude"/>
            
     
         </div>

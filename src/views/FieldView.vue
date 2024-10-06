@@ -5,23 +5,23 @@
         <div>
           <div class="flex items-stretch space-x-3">
             <div class="" style="position: relative;">
-              <img src="../assets/pole1.png" style="height: 400px;" alt="" />
+              <img class="rounded-xl" :src="`${field?.images}nth/0/`" style="height: 400px;" alt="" />
               <button
                 class="flex items-center bg-white p-2 rounded-xl space-x-3"
                 style="position: absolute; top: 20px; left: 20px;"
               >
                 <img src="../assets/location.svg" alt="" />
-                <span>Fotehobod, Uzbekistan</span>
+                <span>{{ field?.title }} </span>
               </button>
             </div>
             <div>
               <div class="flex space-x-3 mb-2">
-                <img style="height: 200px" src="../assets/uzbekistan_polya 1.png" alt="" />
-                <img style="height: 200px" src="../assets/uzbekistan_polya 1.png" alt="" />
+                <img class="rounded-xl" style="height: 200px" :src="`${field?.images}nth/1/`" alt="" />
+                <img class="rounded-xl" style="height: 200px" :src="`${field?.images}nth/1/`" alt="" />
               </div>
               <div class="flex space-x-3">
-                <img style="height: 200px" src="../assets/uzbekistan_polya 1.png" alt="" />
-                <img style="height: 200px" src="../assets/uzbekistan_polya 1.png" alt="" />
+                <img class="rounded-xl"  style="height: 200px" :src="`${field?.images}nth/2/`" alt="" />
+                <img class="rounded-xl" style="height: 200px" :src="`${field?.images}nth/2/`" alt="" />
               </div>
             </div>
           </div>
@@ -42,19 +42,20 @@
         <div class="flex my-16 space-x-20">
           <div class="space-y-8">
             <h2 class="font-bold text-3xl text-start">
-              Lorem ipsum dolor sit, amet consectetur adipisicing.
+              {{ field?.title }}
             </h2>
             <p class="text-start text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                {{ analysis?.message[0][1] }}
+                <h1 v-if="analysis == null" class="text-xl font-bold">Analysing by our AI... please wait</h1>
             </p>
             <div class="flex space-x-16">
               <div class="flex space-x-2 items-center">
                 <img src="../assets/area.svg" alt="" />
-                <span class="font-bold">20g</span>
+                <span class="font-bold">{{ field?.area }}</span>
               </div>
               <div class="flex space-x-2 items-center">
                 <img src="../assets/soil.svg" alt="" />
-                <span class="font-bold">Clay</span>
+                <span class="font-bold">{{ field?.soil_type }}</span>
               </div>
             </div>
           </div>
@@ -103,6 +104,7 @@
       </h2>
       <h5 class="text-start mb-8">*NASA Satelite Sources</h5>
       <div class="flex space-x-8">
+
         <canvas id="precipitationChart" width="400" class="my-8" height="500"></canvas>
         <canvas id="soilMoistureChart" width="400" class="my-8" height="500"></canvas> <!-- New Soil Moisture Chart -->
       </div>
@@ -118,18 +120,46 @@
   
   export default {
     data: () => ({
-      scale_value: 10,
-      precipitationData: [],
-      soilMoistureData: [], // New data property for soil moisture
-      labels: [],
-      latitude: 51.52374, // Latitude of Fotehobod, Uzbekistan
-      longitude: -0.11204, // Longitude of Fotehobod, Uzbekistan
+        field: null,
+        analysis: null,
+        scale_value: 10,
+        precipitationData: [],
+        soilMoistureData: [], // New data property for soil moisture
+        labels: [],
+        latitude: 51.52374, // Latitude of Fotehobod, Uzbekistan
+        longitude: -0.11204, // Longitude of Fotehobod, Uzbekistan
     }),
     components: {
       TopBar,
     },
     async mounted() {
-      this.fetchPrecipitationForecast();
+      await axios.get(`https://agrofy-app-gsghy.ondigitalocean.app/api/v1/my-fields/${this.$route.params.name}`)
+        .then(resp => {
+            console.log(resp.data)
+            this.field = resp.data
+            this.longitude = resp.data.longitude
+            this.longitude = resp.data.latitude
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
+
+        this.fetchPrecipitationForecast();
+
+
+
+        await axios.get(`https://agrofy-app-gsghy.ondigitalocean.app/api/v1/my-fields/${this.$route.params.name}/analyse`)
+        .then(resp => {
+            console.log(resp.data)
+            this.analysis = resp.data
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
+
+
+
+
     },
     methods: {
       async fetchPrecipitationForecast() {

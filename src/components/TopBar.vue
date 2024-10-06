@@ -1,6 +1,6 @@
 <template>
 
-    <div class="flex justify-center rounded-lg px-40" style="background: transparent;">
+    <div class="flex justify-center rounded-lg px-40 sticky sticky-top top-2" style="background: transparent; z-index: 9;">
         <div class="flex justify-between items-center border-2 shadow-lg p-4 rounded-3xl mt-2 w-full bg-white">
             <img src="../assets/nasa_logo.png" alt="">
             <div class="flex items-center text-xl space-x-16 text-green-500 font-bold " >

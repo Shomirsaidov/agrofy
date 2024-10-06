@@ -94,6 +94,7 @@ export default {
     };
   },
   mounted() {
+    localStorage.nasa = '9a015e887ee4b85cc0c15268ef344907e42fcb27'
     // Initialize the map once the component is mounted
     this.initMap();
     this.initUploadcare();
@@ -129,7 +130,7 @@ export default {
             });
 
             console.log(response.data);
-            alert('Field added successfully!');
+            this.$router.push(`/my-fields`)
           } catch (error) {
             if (error.response) {
               // The request was made and the server responded with a status code

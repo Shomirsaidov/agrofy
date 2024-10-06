@@ -67,7 +67,7 @@
     </div>
 
 
-    <div class="flex justify-between space-x-16 px-40">
+    <div class="flex space-x-20 justify-center px-40">
         <div class="comics_bg rounded-3xl p-16 px-32">
             <h1 class="text-4xl font-bold mt-10">Our comics</h1>
             <div class="flex justify-center">

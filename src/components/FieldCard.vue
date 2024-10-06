@@ -1,7 +1,7 @@
 <template>
 
 
-    <a href="/fields/Fotehobod">
+    <a :href="`/fields/${id}`">
         <div class="p-2 rounded-xl flex items-start space-x-4 border-2 myborder hover:shadow-xl cursor-pointer me-3 my-2">
             <img :src="`${images}/nth/0/`" height="220" class="rounded-xl" width="274" alt="">
             <div class="space-y-6">
@@ -40,6 +40,6 @@
 <script>
 
     export default {
-        props: ['title','description', 'location', 'images']
+        props: ['title','description', 'location', 'images', 'id']
     }
 </script>
