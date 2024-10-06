@@ -1,10 +1,10 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <router-view style="position: relative; z-index: 4; margin-bottom: 40px;" />
+    <Footerik/>
+  </div>
 </template>
+
 
 <style lang="scss">
 #app {
@@ -16,15 +16,21 @@
 }
 
 nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  z-index: 0;
+  position: relative;
 }
 </style>
+
+
+<script>
+
+import Footerik from '@/components/Footer.vue'
+
+export default {
+  components: {
+    Footerik
+  }
+}
+
+
+</script>

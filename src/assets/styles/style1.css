@@ -1,0 +1,8 @@
+.bg1 {
+    background-image: url(../bg-image.png);
+    background-size: cover; 
+    background-position: bottom; 
+    position: relative; 
+    z-index: 4; 
+}
+

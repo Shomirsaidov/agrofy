@@ -1,0 +1,31 @@
+.poster1 {
+    background-image: url(../poster_landing.png);
+    background-size: cover; 
+    background-position: bottom; 
+    position: relative; 
+    height: 100vh;
+    z-index: 4; 
+}
+
+.poster2 {
+    background-image: url(../bg_land2.png);
+    background-size: 80%; 
+    background-position: right; 
+    background-repeat: no-repeat;
+    height: 100vh;
+    z-index: 4; 
+    margin-bottom: 40px;
+}
+
+.comics_bg {
+    background-image: url(../comics_bg.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    z-index: 4; 
+    margin-bottom: 40px;
+}
+
+.mygradient {
+    background: radial-gradient( #5AC751 1%, #C0E7C4 , white );
+}
