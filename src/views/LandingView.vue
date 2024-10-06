@@ -67,15 +67,6 @@
     </div>
 
 
-    <div class="poster2 px-40">
-        <h2 class="text-start text-3xl font-bold text-my mb-8">Summary</h2>
-        <p class="w-1/2 text-lg text-start">Leverage the power of NASA’s Earth Observation data combined with advanced machine learning to provide farmers with a comprehensive view of their farm’s current condition. Our solution predicts and alerts about potential issues like droughts, pests, and nutrient deficiencies, while offering tailored recommendations for optimizing crop health and boosting yields. Simplifying agricultural decision-making with accurate, data-driven insights.</p>
-        <br>    
-        <p class="w-1/2 text-lg text-start">Utilizing NASA’s Earth Observation data and machine learning, our solution provides farmers with real-time insights into crop health, predicts potential issues, and offers actionable recommendations. From detecting drought risks to optimizing soil health, we simplify decision-making for farmers with accurate, data-driven information to enhance productivity.</p>
-
-
-    </div>
-
     <div class="flex justify-between space-x-16 px-40">
         <div class="comics_bg rounded-3xl p-16 px-32">
             <h1 class="text-4xl font-bold mt-10">Our comics</h1>
@@ -95,9 +86,25 @@
             <div class="flex justify-center">
                 <img src="../assets/a_pixel_logo_for_fieldify_an_agricultural_themed_g_HSl6jkHBRpunYqnKikZQDw.jpeg" class="my-8" width="200" height="200" style="width: 200px; height: 200px" alt="">
             </div>
-            <button class="p-4 px-16 bg-red-600 text-white rounded-full text-2xl">Play</button>
+            <div>
+                <a href="https://yandex.ru/games/app/378450?draft=true&lang=ru">
+                    <button class="p-4 px-16 bg-red-600 text-white rounded-full text-2xl">Play</button>
+                </a>
+            </div>
         </div>
     </div>
+
+
+    <div class="poster2 px-40">
+        <h2 class="text-start text-3xl font-bold text-my mb-8">Summary</h2>
+        <p class="w-1/2 text-lg text-start">Leverage the power of NASA’s Earth Observation data combined with advanced machine learning to provide farmers with a comprehensive view of their farm’s current condition. Our solution predicts and alerts about potential issues like droughts, pests, and nutrient deficiencies, while offering tailored recommendations for optimizing crop health and boosting yields. Simplifying agricultural decision-making with accurate, data-driven insights.</p>
+        <br>    
+        <p class="w-1/2 text-lg text-start">Utilizing NASA’s Earth Observation data and machine learning, our solution provides farmers with real-time insights into crop health, predicts potential issues, and offers actionable recommendations. From detecting drought risks to optimizing soil health, we simplify decision-making for farmers with accurate, data-driven information to enhance productivity.</p>
+
+
+    </div>
+
+    
 
 
     

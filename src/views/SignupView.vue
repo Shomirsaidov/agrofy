@@ -10,9 +10,9 @@
         </div>
 
         <div class="flex flex-col space-y-3">
-          <input type="text" placeholder="Username" class="focus:shadow-md border p-4 outline-none rounded-xl" style="width: 450px;">
-          <input type="text" placeholder="Email" class="focus:shadow-md border p-4 outline-none rounded-xl">
-          <input type="password" placeholder="Password" class=" focus:shadow-md border p-4 outline-none rounded-xl">
+          <input type="text" v-model="username" placeholder="Username" class="focus:shadow-md border p-4 outline-none rounded-xl" style="width: 450px;">
+          <input type="text" v-model="email" placeholder="Email" class="focus:shadow-md border p-4 outline-none rounded-xl">
+          <input type="password" v-model="password" placeholder="Password" class=" focus:shadow-md border p-4 outline-none rounded-xl">
           <input type="password" placeholder="Confirm Password" class="focus:shadow-md border p-4 outline-none rounded-xl">
         </div>
 
@@ -29,16 +29,36 @@
 
 
   </div>
+
 </template>
 
 <script>
 // @ is an alias to /src
 import TopBar from '@/components/TopBar.vue'
 
+import axios from 'axios'
+
 export default {
+  data: () => ({
+    email: '',
+    username: '',
+    password: ''
+  }),
   name: 'HomeView',
   components: {
     TopBar
+  },
+  methods: {
+    async signup() {
+      await axios.post('https://agrofy-app-gsghy.ondigitalocean.app/api/v1/auth/users/', {
+        email: this.email,
+        username: this.username,
+        password: this.password
+      })
+      .then(resp => {
+        console.log()
+      })
+    }
   }
 }
 </script>
