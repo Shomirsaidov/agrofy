@@ -104,9 +104,9 @@ export default {
           const postData = {
             title: this.fieldTitle,
             description: this.description,
-            area: this.fieldArea,
-            longtitude: this.fieldCords.lng,
-            latitude	: this.fieldCords.lat,
+            area: `${this.fieldArea}`,
+            longtitude: `${this.fieldCords.lng}`,
+            latitude	: `${this.fieldCords.lat}`,
             soil_type: this.soilType,
             images: this.uploadedImageUrls[0],
           
@@ -122,7 +122,7 @@ export default {
               method: 'post', // Change method as needed
               url: 'https://agrofy-app-gsghy.ondigitalocean.app/api/v1/my-fields/',
               headers: {
-                Authorization: `Bearer ${localStorage.nasa}`, // Ensure the token is formatted correctly
+                Authorization: `Token ${localStorage.nasa}`, // Ensure the token is formatted correctly
                 'Content-Type': 'application/json' // Specify content type
               },
               data: postData // Use `data` to pass the request body, not `body`
@@ -131,8 +131,21 @@ export default {
             console.log(response.data);
             alert('Field added successfully!');
           } catch (error) {
-            console.error('An error occurred:', error);
-            alert('Failed to add field. Please try again.');
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              console.error('Error response data:', error.response.data);
+              console.error('Error response status:', error.response.status);
+              console.error('Error response headers:', error.response.headers);
+              alert(`Failed to add field. Server responded with: ${error.response.status} - ${error.response.data.message || error.response.data}`);
+            } else if (error.request) {
+              // The request was made but no response was received
+              console.error('Error request:', error.request);
+              alert('Failed to add field. No response received from the server.');
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.error('Error message:', error.message);
+              alert('Failed to add field. Error: ' + error.message);
+            }
           }
           
           // Handle success (e.g., show a notification, redirect, etc.)
