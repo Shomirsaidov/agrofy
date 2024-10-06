@@ -46,7 +46,13 @@
             </h2>
             <p class="text-start text-xl">
                 {{ analysis?.message[0][1] }}
-                <h1 v-if="analysis == null" class="text-xl font-bold">Analysing by our AI... please wait</h1>
+                <div v-if="analysis == null">
+                    <h1 class="text-xl font-bold">Analysing by our AI... please wait</h1>
+                    <div class="loader-container">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                
             </p>
             <div class="flex space-x-16">
               <div class="flex space-x-2 items-center">
@@ -293,5 +299,27 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+
+  .loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #29954b;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }
+
+    /* Центрирование на экране */
+    .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
   </style>
   
