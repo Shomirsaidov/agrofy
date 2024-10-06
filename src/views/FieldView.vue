@@ -128,7 +128,7 @@
     components: {
       TopBar,
     },
-    mounted() {
+    async mounted() {
       this.fetchPrecipitationForecast();
     },
     methods: {
