@@ -1,9 +1,9 @@
 <template>
 
     <div class="flex justify-center rounded-lg px-40" style="background: transparent;">
-        <div class="flex justify-between items-center border-2 shadow-lg p-4 rounded-3xl mt-2 w-full bg-white flex-wrap">
+        <div class="flex justify-between items-center border-2 shadow-lg p-4 rounded-3xl mt-2 w-full bg-white">
             <img src="../assets/nasa_logo.png" alt="">
-            <div class="flex items-center text-xl space-x-16 text-green-500 font-bold flex-wrap" >
+            <div class="flex items-center text-xl space-x-16 text-green-500 font-bold " >
                 <router-link to="/my-fields">My fields</router-link> 
                 <router-link to="/notifications">Notifications</router-link>
                 <router-link to="/forum">Community</router-link>
